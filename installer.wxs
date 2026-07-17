@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Product Codepage="1252" Id="*" Name="BedrockSync" Language="1034" Version="1.0.0" Manufacturer="yutencurso" UpgradeCode="c4a7ddab-d063-48e6-bfba-3e55360cfc00" >
+        <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+        <MajorUpgrade DowngradeErrorMessage="Una versión más nueva ya está instalada." />
+        <MediaTemplate EmbedCab="yes" />
+
+        <Directory Id="TARGETDIR" Name="SourceDir">
+            <Directory Id="ProgramFilesFolder">
+                <Directory Id="INSTALLFOLDER" Name="BedrockSync" />
+            </Directory>
+        </Directory>
+
+        <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+            <Component Id="MainExecutable" Guid="3b96d76a-1fa2-4d4e-a718-4e04ad52c51e">
+                <File Id="BedrockSyncEXE" Source="dist\bedrocksync.exe" KeyPath="yes" />
+            </Component>
+            
+            <Component Id="AddToPath" Guid="e56332ba-4d98-40ef-b4a3-6a85f64d00f6">
+                <Environment Id="PATH" Name="PATH" Value="[INSTALLFOLDER]" Permanent="no" Part="last" Action="set" System="yes" />
+                <CreateFolder />
+            </Component>
+        </ComponentGroup>
+
+        <Feature Id="ProductFeature" Title="Instalador" Level="1">
+            <ComponentGroupRef Id="ProductComponents" />
+        </Feature>
+    </Product>
+</Wix>

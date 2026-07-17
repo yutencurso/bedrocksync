@@ -1,0 +1,18 @@
+{
+  "name": "bedrocksync",
+  "version": "1.0.0",
+  "description": "Sincronizador en tiempo real para Minecraft Bedrock facilitando la creación de mods",
+  "main": "index.js",
+  "bin": {
+    "bedrocksync": "./index.js"
+  },
+    "scripts": {
+    "compile": "pkg . --targets node18-win-x64 --output dist/bedrocksync.exe",
+    "build-msi": "npm run compile && \"C:\\Program Files (x86)\\WiX Toolset v3.14\\bin\\candle.exe\" installer.wxs -o dist/installer.wixobj && \"C:\\Program Files (x86)\\WiX Toolset v3.14\\bin\\light.exe\" dist/installer.wixobj -o dist/BedrockSync-Installer.msi"
+  },
+  "dependencies": {
+    "chokidar": "^3.6.0",
+    "commander": "^15.0.0",
+    "fs-extra": "^11.3.6"
+  }
+}
