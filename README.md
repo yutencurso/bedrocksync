@@ -10,6 +10,10 @@ This program is used to synchronize your Minecraft Bedrock mod project (regardle
 
 · `bedrocksync --version` show the version of the program
 
+· `bedrocksync start -t android` to start syncing in an android device coneccted by ADB
+
+· `bedrocksync stop -t android` to stop syncing with android
+
 **Aviable in...**
 
-only for windows
+Windows and linux arm64 (debian based)
